@@ -3,11 +3,11 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 
-from flask import Flask
-app = Flask(__name__)
+#from flask import Flask
+#app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
-wsgi_app = app.wsgi_app
+#wsgi_app = app.wsgi_app
 
 # you can use as many decorators as you want if the same function serves multiple routes
 # The variable can be part of the URL path or in a query parameter. For example, a route 
@@ -19,14 +19,17 @@ wsgi_app = app.wsgi_app
 #def hello(name, msg):
 #    return "Hello " + name + "! Message is " + msg + "."
 
-@app.route('/')
-@app.route('/hello')
-def hello():
-    """Renders a sample page."""
-    return "Hello World!"
+#@app.route('/')
+#@app.route('/hello')
+#def hello():
+#    """Renders a sample page."""
+#    return "Hello World!"
+
+import os 
+from HelloFlask import app  #imports the code from HelloFlask/_init_.py
 
 if __name__ == '__main__':
-    import os
+   # import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
         PORT = int(os.environ.get('SERVER_PORT', '5555'))
